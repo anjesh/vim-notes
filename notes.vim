@@ -2,11 +2,13 @@
 "By Anjesh Tuladhar
 
 if exists("g:loaded_notes")
-	finish
+    finish
 endif
+
 let g:loaded_notes = 1
+
 if !exists("g:NOTES_DIR")
-	let g:NOTES_DIR = "~/.notes"
+    let g:NOTES_DIR = "~/.notes"
 endif
 
 function! Note(filename, ...)
@@ -14,10 +16,9 @@ function! Note(filename, ...)
     if !isdirectory(l:dir)
         exe "silent !mkdir ".l:dir
     endif
-	let l:filename = join(split(a:filename),"-")
+    let l:filename = join(split(a:filename),"-")
     exe "lcd ".l:dir
     exe "e ".l:filename
-
 endfunction
 
 function! EditCompleteFile(A,L,P)
